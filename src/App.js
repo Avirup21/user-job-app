@@ -1,26 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {BrowserRouter,Route,Link} from "react-router-dom"
+import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
+import Users from './component/users/Users'
+import Dashboard from './component/users/Dashboard'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <BrowserRouter>
+    <Container className='p-3'>
+     <div>
+       <form align='right'>
+       <Link to='/'>Register</Link>|
+      <Link to='/dashboard'>Dashboard</Link>
+       </form>
+       <Route path='/' component={Users} exact={true}/>
+       <Route path='/dashboard' component={Dashboard}/>
     </div>
+    </Container>
+    </BrowserRouter>
   );
 }
-
 export default App;
